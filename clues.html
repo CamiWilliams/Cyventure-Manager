@@ -1,0 +1,219 @@
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<link rel="shortcut icon" href="../../assets/ico/favicon.ico">
+
+		<title>Cyventure Manager</title>
+
+		<script type='text/javascript' src='https://cdn.firebase.com/js/client/1.0.11/firebase.js'></script>
+		<!-- Bootstrap core CSS -->
+		<link href="bootstrap-3.1.1-dist/css/bootstrap.min.css" rel="stylesheet">
+
+		<!-- Custom styles for this template -->
+		<link href="navbar.css" rel="stylesheet">
+
+		<script src="js/clues_cymanager.js"></script>
+		<style type="text/css"></style>
+	</head>
+
+	<body onload="getClues()">
+
+		<div class="container">
+
+			<!-- Static navbar -->
+			<div class="navbar navbar-default" role="navigation">
+				<div class="container-fluid">
+					<div class="navbar-header">
+						<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+							<span class="sr-only">Toggle navigation</span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+							<span class="icon-bar"></span>
+						</button>
+						<a class="navbar-brand" href="#">Cyventure Manager</a>
+					</div>
+					<div class="navbar-collapse collapse">
+						<ul class="nav navbar-nav">
+							<li class="active">
+								<a href="clues.html">Clues</a>
+							</li>
+							<li>
+								<a href="settings.html">Settings</a>
+							</li>
+							<li>
+								<a href="store.html">Store</a>
+							</li>
+						</ul>
+						<ul class="nav navbar-nav navbar-right">
+							<li>
+								<a href="workspace.html">Workspace</a>
+							</li>
+							<li>
+								<a href="javascript: self.close()">Logout</a>
+							</li>
+						</ul>
+					</div><!--/.nav-collapse -->
+				</div><!--/.container-fluid -->
+			</div>
+
+			<!-- Main component for a primary marketing message or call to action -->
+			<div class="jumbotron">
+				<h2>Clue Manager</h2>
+				<p>
+					<form class="navbar-form">
+						<select class="form-control" id = "sel">
+							<option value="error">----Select Building----</option>
+							<option value="Administrative Services Building">Administrative Services Building</option>
+							<option value="Agronomy Hall">Agronomy Hall</option>
+							<option value="Alumni Center">Alumni Center</option>
+							<option value="Armory">Armory</option>
+							<option value="Atanasoff Hall">Atanasoff Hall</option>
+							<option value="Barton Residence Hall">Barton Residence Hall</option>
+							<option value="Beardshear Hall">Beardshear Hall</option>
+							<option value="Bessey Hall">Bessey Hall</option>
+							<option value="Beyer Hall">Beyer Hall</option>
+							<option value="Birch Residence Hall">Birch Residence Hall</option>
+							<option value="Black Engineering">Black Engineering</option>
+							<option value="Buchanan Residence Hall">Buchanan Residence Hall</option>
+							<option value="Campanile">Campanile</option>
+							<option value="Carver Hall">Carver Hall</option>
+							<option value="Catt Hall">Catt Hall</option>
+							<option value="College of Design">College of Design</option>
+							<option value="Communications Building">Communications Building</option>
+							<option value="Coover Hall">Coover Hall</option>
+							<option value="Curtiss Hall">Curtiss Hall</option>
+							<option value="Davidson Hall">Davidson Hall</option>
+							<option value="Durham Center">Durham Center</option>
+							<option value="Eaton Residence Hall">Eaton Residence Hall</option>
+							<option value="Enrollment Services Center">Enrollment Services Center</option>
+							<option value="Family Resource Center">Family Resource Center</option>
+							<option value="Farm House">Farm House</option>
+							<option value="Fisher Theater">Fisher Theater</option>
+							<option value="Food Sciences Building">Food Sciences Building</option>
+							<option value="Forestry Greenhouse">Forestry Greenhouse</option>
+							<option value="Forker Building">Forker Building</option>
+							<option value="Frederiksen Court Community Center">Frederiksen Court Community Center</option>
+							<option value="Freeman Residence Hall">Freeman Residence Hall</option>
+							<option value="Friley Residence Hall">Friley Residence Hall</option>
+							<option value="General Services Building">General Services Building</option>
+							<option value="Genetics Laboratory">Genetics Laboratory</option>
+							<option value="Gerdin Business Building">Gerdin Business Building</option>
+							<option value="Gilman Hall">Gilman Hall</option>
+							<option value="Hach Hall">Hach Hall</option>
+							<option value="Hamilton Hall">Hamilton Hall</option>
+							<option value="Heady Hall">Heady Hall</option>
+							<option value="Helser Residence Hall">Helser Residence Hall</option>
+							<option value="Hilton Coliseum">Hilton Coliseum</option>
+							<option value="Hixson-Lied Student Success Center">Hixson-Lied Student Success Center</option>
+							<option value="Hoover Hall">Hoover Hall</option>
+							<option value="Horse Barn">Horse Barn</option>
+							<option value="Horticulture Hall">Horticulture Hall</option>
+							<option value="Howe Hall">Howe Hall</option>
+							<option value="Hub">Hub</option>
+							<option value="Human Nutritional Sciences Building">Human Nutritional Sciences Building</option>
+							<option value="Ice Arena">Ice Arena</option>
+							<option value="Industrial Education II">Industrial Education II</option>
+							<option value="Insectary">Insectary</option>
+							<option value="Jack Trice Stadium">Jack Trice Stadium</option>
+							<option value="Jischke Honors Building">Jischke Honors Building</option>
+							<option value="Kildee Hall">Kildee Hall</option>
+							<option value="Knapp-Storms Dining Complex">Knapp-Storms Dining Complex</option>
+							<option value="Knoll">Knoll</option>
+							<option value="Lagomarcino Hall">Lagomarcino Hall</option>
+							<option value="Larch Residence Hall">Larch Residence Hall</option>
+							<option value="LeBaron Hall">LeBaron Hall</option>
+							<option value="Lied Recreation Athletic Facility">Lied Recreation Athletic Facility</option>
+							<option value="Linden Residence Hall">Linden Residence Hall</option>
+							<option value="Lyon Residence Hall">Lyon Residence Hall</option>
+							<option value="MacKay Hall">MacKay Hall</option>
+							<option value="Maple Residence Hall">Maple Residence Hall</option>
+							<option value="Maple-Willow-Larch Commons">Maple-Willow-Larch Commons</option>
+							<option value="Marston Hall">Marston Hall</option>
+							<option value="Martin Residence Hall">Martin Residence Hall</option>
+							<option value="Meats Laboratory">Meats Laboratory</option>
+							<option value="Memorial Union">Memorial Union</option>
+							<option value="Metals Development Building">Metals Development Building</option>
+							<option value="Molecular Biology Building">Molecular Biology Building</option>
+							<option value="Morrill Hall">Morrill Hall</option>
+							<option value="Music Hall">Music Hall</option>
+							<option value="Nuclear Engineering Laboratory">Nuclear Engineering Laboratory</option>
+							<option value="Oak-Elm Residence Hall">Oak-Elm Residence Hall</option>
+							<option value="Office and Laboratory Building">Office and Laboratory Building</option>
+							<option value="Parks Library">Parks Library</option>
+							<option value="Pearson Hall">Pearson Hall</option>
+							<option value="Physics Hall">Physics Hall</option>
+							<option value="Reiman Gardens Conservatory">Reiman Gardens Conservatory</option>
+							<option value="Ross Hall">Ross Hall</option>
+							<option value="Scheman Building">Scheman Building</option>
+							<option value="Science Hall">Science Hall</option>
+							<option value="Science Hall II">Science Hall II</option>
+							<option value="Seed Science Building">Seed Science Building</option>
+							<option value="Sloss House">Sloss House</option>
+							<option value="Snedecor Hall">Snedecor Hall</option>
+							<option value="Spedding Hall">Spedding Hall</option>
+							<option value="State Gymnasium">State Gymnasium</option>
+							<option value="Stephens Auditorium">Stephens Auditorium</option>
+							<option value="Student Services">Student Services</option>
+							<option value="Sweeney Hall">Sweeney Hall</option>
+							<option value="Thielen Student Health Center">Thielen Student Health Center</option>
+							<option value="Troxel Hall">Troxel Hall</option>
+							<option value="Union Drive Community Center">Union Drive Community Center</option>
+							<option value="Visitor Information Booth">Visitor Information Booth</option>
+							<option value="Wallace Residence Hall">Wallace Residence Hall</option>
+							<option value="Wallace-Wilson Commons">Wallace-Wilson Commons</option>
+							<option value="Welch Residence Hall">Welch Residence Hall</option>
+							<option value="Wilhelm Hall">Wilhelm Hall</option>
+							<option value="Willow Residence Hall">Willow Residence Hall</option>
+							<option value="Wilson Residence Hall">Wilson Residence Hall</option>
+
+						</select>
+
+						<input type="text" class="form-control" id = "clueText" placeholder="Clue">
+						<input type="text" class="form-control" id = "hintText" placeholder="Hint">
+						<button type="button" class="btn btn-primary" onclick="addClue()">
+							Create Clue
+						</button>
+					</form>
+				</p>
+
+				<p>
+					<div class="panel panel-default">
+						<!-- Default panel contents -->
+						<table class="table table-striped header-fixed">
+							<thead>
+								<tr>
+									<th>Name</th>
+									<th>Clue</th>
+									<th>Hint</th>
+									<th>(Latitude, Longitude)</th>
+								</tr>
+							</thead>
+							<tbody id = "jake">
+								<tr>
+									<td>1</td>
+									<td>"Farm House"</td>
+									<td>"The oldest structure on campus"</td>
+									<td>"Also known as the Knapp-Wilson House"</td>
+									<td>(42.02708, -93.6442)</td>
+								</tr>
+							</tbody>
+						</table>
+					</div>
+				</p>
+			</div>
+
+		</div>
+		<!-- /container -->
+
+		<!-- Bootstrap core JavaScript
+		================================================== -->
+		<!-- Placed at the end of the document so the pages load faster -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+		<script src="../../dist/js/bootstrap.min.js"></script>
+
+	</body>
+</html>
