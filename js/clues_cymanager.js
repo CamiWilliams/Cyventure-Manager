@@ -7,7 +7,7 @@ function getClues()
 	for (i = 0; i < 1000; i++) {
 	
 	
-	var dataRef = new Firebase('https://clues309.firebaseio.com/clues/' + (i+1));
+	var dataRef = new Firebase('https://cyventure-test.firebaseio.com/clues/' + (i+1));
 	dataRef.on('value', function(snapshot) {
 		 jake.innerHTML +=  "<td>" + snapshot.val().name + "</td>"
 		 				+ " <td>" + snapshot.val().clue1 + "</td>"
@@ -27,11 +27,11 @@ function addClue() {
 	var sel = document.getElementById('sel');
 	var jake = document.getElementById("jake"); 
 	
-	var dataRef1 = new Firebase('https://clues309.firebaseio.com/clues/');
+	var dataRef1 = new Firebase('https://cyventure-test.firebaseio.com/clues/');
 	dataRef1.once('value', function(snapshot) {
 		var x = snapshot.numChildren() + 3;
 		
-		var dataRef = new Firebase('https://clues309.firebaseio.com/clues/');
+		var dataRef = new Firebase('https://cyventure-test.firebaseio.com/clues/');
 		dataRef.child(x).set({clue1: clue.value, clue2: hint.value, longitude: getLong(sel.selectedIndex), latitude: getLat(sel.selectedIndex), name: sel.options[sel.selectedIndex].value});
 		alert("Clue added!");
 	});
